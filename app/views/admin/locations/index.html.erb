@@ -1,2 +1,17 @@
 <h4>ユーザー勤務地登録</h4>
 
+<%= form_with model: @location, url: admin_locations_path do |f| %>
+
+ <p>勤務地名　<%= f.text_field :location %></p>
+
+ <p><%= f.submit '登録する' %></p>
+
+<% end %>
+
+<p>勤務地一覧</p>
+
+<% @locations.each do |location| %>
+
+ <p><%= location.location %></p>
+
+<% end %>
