@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <header>
+
+      <% if customer_signed_in? %>
+       <p>ログインできています。</p>
+      <% else %>
+       <p><%= link_to "TOP", root_path %></p>
+       <p><%= link_to "ログイン",  new_customer_session_path %></p>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
