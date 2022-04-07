@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root to: 'homes#top'
 
 # ユーザー
@@ -23,6 +24,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 namespace :admin do
     root to: 'homes#top'
     resources :customers
+    resources :locations
   end
 
 end
