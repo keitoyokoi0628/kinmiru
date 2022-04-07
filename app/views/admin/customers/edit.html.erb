@@ -1,2 +1,13 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<h1>ユーザー編集</h1>
+
+<p><%= @customer.name %>さん</p>
+
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+
+<p>名前　<%= f.text_field :name %></p>
+
+<p>メールアドレス　<%= f.text_field :email %></p>
+
+<p><%= f.submit '変更を保存' %></p>
+
+<% end %>
