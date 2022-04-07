@@ -15,10 +15,10 @@
 
       <% if customer_signed_in? %>
        <p>ログインできています。</p>
-       <p><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></p>
+       <p><%= link_to "ユーザーログアウト", destroy_customer_session_path, method: :delete %></p>
       <% else %>
        <p><%= link_to "TOP", root_path %></p>
-       <p><%= link_to "ログイン",  new_customer_session_path %></p>
+       <p><%= link_to "ユーザーログイン",  new_customer_session_path %></p>
       <% end %>
     </header>
     <%= yield %>
