@@ -4,7 +4,7 @@
 <% unless Attendance.exists?(start: Time.zone.now.all_day) %>
 <%= form_with model: @attendance do |f| %>
 
-
+ <p>勤務地<%= f.text_field :location %></p>
 
  <%= f.hidden_field :start %>
 

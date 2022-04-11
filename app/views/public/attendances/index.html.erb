@@ -5,6 +5,9 @@
  <p>出勤打刻</p>
  <%= a.start.strftime('%Y %-m/%d %H:%M') %>
 
+ <p>勤務地</p>
+ <%= a.location %>
+
  <p>退勤打刻</p>
  <% unless a.end.nil? %>
  <%= a.end.strftime('%Y %-m/%d %H:%M') %>
