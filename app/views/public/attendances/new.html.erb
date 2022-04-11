@@ -1,0 +1,22 @@
+<h1><%= Time.current.strftime('%Y %-m/%d %H:%M') %></h1>
+
+
+<% unless Attendance.exists?(start: Time.zone.now.all_day) %>
+<%= form_with model: @attendance do |f| %>
+
+
+
+ <%= f.hidden_field :start %>
+
+ <%= f.submit '出勤' %>
+
+<% end %>
+<% end %>
+
+<% if Attendance.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
+<%= form_with model: @attendance, url: attendance_path(current_customer), method: :patch do |f| %>
+
+ <%= f.submit '退勤' %>
+
+<% end %>
+<% end %>

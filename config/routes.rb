@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   root to: 'homes#top'
 
 # ユーザー
@@ -16,8 +17,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
  scope module: :public do
+
     get "/customers/my_page" => "customers#show"
     resources :customers
+    resources :attendances
+
  end
 
 

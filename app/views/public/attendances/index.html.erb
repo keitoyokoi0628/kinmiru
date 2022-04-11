@@ -1,0 +1,12 @@
+<h4>勤怠一覧</h4>
+
+<% @attendances.each do |a| %>
+
+ <p>出勤打刻</p>
+ <%= a.start.strftime('%Y %-m/%d %H:%M') %>
+
+ <p>退勤打刻</p>
+ <% unless a.end.nil? %>
+ <%= a.end.strftime('%Y %-m/%d %H:%M') %>
+ <% end %>
+<% end %>

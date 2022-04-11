@@ -15,7 +15,9 @@
 
       <% if customer_signed_in? %>
        <p>ログインできています。</p>
+       <p><%= link_to "トップ", root_path %></p>
        <p><%= link_to "マイページ", customers_my_page_path %></p>
+       <p><%= link_to "勤怠一覧", attendances_path %></p>
        <p><%= link_to "ユーザーログアウト", destroy_customer_session_path, method: :delete %></p>
       <% else %>
        <p><%= link_to "TOP", root_path %></p>
