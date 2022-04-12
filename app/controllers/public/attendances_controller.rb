@@ -4,8 +4,8 @@ class Public::AttendancesController < ApplicationController
   end
 
   def new
-    if Attendance.exists?(start: Time.zone.now.all_day)
-    @attendance = Attendance.last
+    if current_customer.attendances.exists?(start: Time.zone.now.all_day)
+    @attendance = current_customer.attendances.last
     else
     @attendance = Attendance.new
     end
@@ -26,7 +26,7 @@ class Public::AttendancesController < ApplicationController
   def update
     @attendance = Attendance.find(params[:id])
     @attendance.end = Time.current
-    @attendance.save
+    @attendance.save!
     redirect_to new_attendance_path
   end
 
