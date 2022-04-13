@@ -20,6 +20,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get "/customers/my_page" => "customers#show"
     resources :customers
     resources :attendances
+    resources :editings
+    get '/editings/confirm' => 'editings#confirm', as: 'confirm'
+    get '/editings/complete' => 'editings#complete', as: 'complete'
 
  end
 

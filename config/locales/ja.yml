@@ -1,0 +1,8 @@
+ja:
+    enums:
+      attendance:
+        is_active:
+          normal: "正常"
+          applying: "申請中"
+          approved: "承認済み"
+          negative: "否認"

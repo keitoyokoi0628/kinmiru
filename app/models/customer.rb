@@ -7,4 +7,5 @@ class Customer < ApplicationRecord
 
   has_many :locations, dependent: :destroy
   has_many :attendances, dependent: :destroy
+  has_many :editings, dependent: :destroy
 end

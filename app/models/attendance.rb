@@ -2,6 +2,8 @@ class Attendance < ApplicationRecord
 
   belongs_to :customer, optional: :true
 
-  enum is_active: {正常: 0, 申請中: 1, 承認済み: 2, 否認: 3}
+  has_many :editings, dependent: :destroy
+
+  enum is_active: {normal: 0, applying: 1, approved: 2, negative: 3}
 
 end

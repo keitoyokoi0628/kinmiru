@@ -26,7 +26,8 @@ class Public::AttendancesController < ApplicationController
   def update
     @attendance = Attendance.find(params[:id])
     @attendance.end = Time.current
-    @attendance.save!
+    @attendance.is_active = 0
+    @attendance.save
     redirect_to new_attendance_path
   end
 
