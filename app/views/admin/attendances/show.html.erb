@@ -1,6 +1,6 @@
-<h4>勤怠一覧</h4>
+<p><%= @customer.name %>さん</p>
 
-<% @attendances.each do |a| %>
+<% @attendance.each do |a| %>
 
   <p>出勤打刻</p>
   <%= a.start.strftime('%Y %-m/%d %H:%M') %>

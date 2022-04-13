@@ -33,7 +33,7 @@ class Public::AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit(:start, :customer_id, :location)
+    params.require(:attendance).permit(:start, :customer_id, :location, :is_active,)
   end
 
 end

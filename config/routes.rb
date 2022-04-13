@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   root to: 'homes#top'
 
 # ユーザー
@@ -29,6 +28,7 @@ namespace :admin do
     root to: 'homes#top'
     resources :customers
     resources :locations
+    resources :attendances
   end
 
 end
