@@ -31,10 +31,22 @@ class Public::AttendancesController < ApplicationController
     redirect_to new_attendance_path
   end
 
+
+  def timesedit
+     @attendance = Attendance.find(params[:id])
+  end
+
+  def timesupdate
+    @attendance = Attendance.find(params[:id])
+    @attendance.is_active = "applying"
+    @attendance.update(attendance_params)
+    redirect_to new_attendance_path
+  end
+
   private
 
   def attendance_params
-    params.require(:attendance).permit(:start, :customer_id, :location, :is_active,)
+    params.require(:attendance).permit(:start, :customer_id, :location, :is_active, :re_start, :re_end, :cause )
   end
 
 end

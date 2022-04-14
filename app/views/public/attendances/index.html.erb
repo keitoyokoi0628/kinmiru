@@ -1,23 +1,49 @@
 <h4>勤怠一覧</h4>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>日付</th>
+    <th>出勤日時</th>
+    <th>退勤日時</th>
+    <th>勤務地</th>
+    <th>ステータス</th>
+  </tr>
+
+  <!-- ここにeach文 -->
+
 
 <% @attendances.each do |a| %>
-
-  <p>出勤打刻</p>
+<tr>
+  <td>
+  <%= a.id %>
+  </td>
+ <td>
+  <%= a.created_at.strftime('%Y %-m/%d %H:%M') %>
+  </td>
+   <td>
   <%= a.start.strftime('%Y %-m/%d %H:%M') %>
+  </td>
 
-
-
-  <p>退勤打刻</p>
+  <td>
   <% unless a.end.nil? %>
   <%= a.end.strftime('%Y %-m/%d %H:%M') %>
   <% end %>
+  </td>
 
-  <p>勤務地</p>
+  <td>
   <%= a.location %>
+  </td>
 
-  <p>ステータス</p>
+  <td>
   <%= a.is_active_i18n %>
+  </td>
 
-  <P><%= link_to "修正", new_editing_path %></P>
-
+  <td>
+  <% unless a.end.nil? %>
+  <P><%= link_to "修正", timesedit_path(a) %></P>
+  <% end %>
+  </td>
 <% end %>
+
+  </tr>
+</table>

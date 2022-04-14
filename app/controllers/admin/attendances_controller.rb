@@ -9,4 +9,10 @@ class Admin::AttendancesController < ApplicationController
     @attendance = @customer.attendances
   end
 
+  def edit
+  end
+
+  def update
+  end
+
 end

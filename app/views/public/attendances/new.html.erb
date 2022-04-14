@@ -12,7 +12,7 @@
 <% end %>
 
 <% if current_customer.attendances.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
-  <%= form_with model: @attendance, url: attendance_path(current_customer), method: :patch do |f| %>
+  <%= form_with model: @attendance, url: attendance_path(@attendance), method: :patch do |f| %>
 
 
      <%= f.submit '退勤' %>

@@ -1,0 +1,13 @@
+<h1>勤怠修正を申告</h1>
+
+<%= form_with model: @attendance, url: timesupdate_path(@attendance), method: :patch do |f| %>
+
+ <p>出勤日時　<%= f.datetime_field :re_start %></p>
+
+ <p>退勤日時　<%= f.datetime_field :re_end %></p>
+
+ <p>修正理由</p>
+ <%= f.text_area :cause %>
+
+ <p><%= f.submit '勤怠修正を申告する' %></p>
+<% end %>
