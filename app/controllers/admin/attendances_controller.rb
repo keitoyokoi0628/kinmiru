@@ -1,7 +1,7 @@
 class Admin::AttendancesController < ApplicationController
   layout 'admin'
   def index
-    @attendances = Attendance.all
+    @attendances = Attendance.where(is_active: "1")
   end
 
   def show

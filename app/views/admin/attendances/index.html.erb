@@ -1,0 +1,8 @@
+<h1>修正申告一覧</h1>
+
+<% @attendances.each do |attendance| %>
+ <%= attendance.customer.name %>
+ <%= attendance.updated_at.strftime('%Y %-m/%d %H:%M') %>
+ <%= attendance.re_start.strftime('%Y %-m/%d %H:%M') %>
+ <%= attendance.re_end.strftime('%Y %-m/%d %H:%M') %>
+<% end %>
