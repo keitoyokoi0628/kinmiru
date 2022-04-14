@@ -1,4 +1,5 @@
 class Public::AttendancesController < ApplicationController
+
   def index
     @attendances = current_customer.attendances
   end

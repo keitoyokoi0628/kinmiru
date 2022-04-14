@@ -27,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 
 namespace :admin do
-    root to: 'homes#top'
+    root to: 'attendances#top'
     resources :customers
     resources :locations
     resources :attendances
