@@ -5,4 +5,5 @@
  <%= attendance.updated_at.strftime('%Y %-m/%d %H:%M') %>
  <%= attendance.re_start.strftime('%Y %-m/%d %H:%M') %>
  <%= attendance.re_end.strftime('%Y %-m/%d %H:%M') %>
+ <%= link_to "詳細", edit_admin_attendance_path(attendance) %>
 <% end %>

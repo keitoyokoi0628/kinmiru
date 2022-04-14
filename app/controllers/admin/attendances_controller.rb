@@ -10,9 +10,11 @@ class Admin::AttendancesController < ApplicationController
   end
 
   def edit
+    @attendance = Attendance.find(params[:id])
   end
 
   def update
+    
   end
 
 end

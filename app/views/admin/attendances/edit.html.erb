@@ -1,0 +1,9 @@
+<h1>修正詳細</h1>
+
+<p><%= @attendance.customer.name %>さんの修正申請</p>
+
+<p>修正前</p>
+<p>出勤時刻<%= @attendance.start.strftime('%Y %-m/%d %H:%M') %></p>
+<p>退勤時刻<%= @attendance.end.strftime('%y %-m/%d %H:%M') %></p>
+
+<p>修正申請内容</p>
