@@ -39,7 +39,7 @@ class Public::AttendancesController < ApplicationController
 
   def timesupdate
     @attendance = Attendance.find(params[:id])
-    @attendance.is_active = "applying"
+    @attendance.is_active = 1
     @attendance.update(attendance_params)
     redirect_to new_attendance_path
   end
