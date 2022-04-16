@@ -1,6 +1,12 @@
-<h1>管理者TOP</h1>
+<h1>本日の勤務者一覧</h1>
 
 <% @attendances.each do |attendance| %>
-<%= attendance.customer.name %>
-<%= attendance.start.strftime('%Y %-m/%d %H:%M') %>
+  <%= attendance.customer.name %>
+  <%= attendance.start.strftime('%Y %-m/%d %H:%M') %>
+
+  <% unless attendance.end.nil? %>
+   <%= attendance.end.strftime('%Y %-m/%d %H:%M') %>
+  <% end %>
+
+  <%= attendance.location %>
 <% end %>

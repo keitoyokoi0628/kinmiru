@@ -2,7 +2,7 @@ class Admin::AttendancesController < ApplicationController
   layout 'admin'
 
   def top
-    @attendances = Attendance.where(start: Time.zone.now.all_day )
+    @attendances = Attendance.where(start: Time.zone.now.all_day)
   end
 
   def index
