@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
-
-
   root to: 'homes#top'
-
 # ユーザー
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-
 # 管理者
-
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
  scope module: :public do
-
     get "/customers/my_page" => "customers#show"
     resources :customers
     resources :attendances
@@ -25,10 +19,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
  end
 
-
 namespace :admin do
     root to: 'attendances#top'
     resources :customers
+    get 'search' => 'customers#search'
     resources :locations
     resources :attendances
   end

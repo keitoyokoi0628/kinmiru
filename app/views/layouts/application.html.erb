@@ -12,7 +12,6 @@
 
   <body>
     <header>
-
       <% if customer_signed_in? %>
        <p>ログインできています。</p>
        <p><%= link_to "トップ", root_path %></p>
@@ -27,4 +26,5 @@
     </header>
     <%= yield %>
   </body>
+
 </html>

@@ -23,6 +23,7 @@ class Admin::AttendancesController < ApplicationController
     if params[:approved]
       @attendance.start = @attendance.re_start
       @attendance.end = @attendance.re_end
+      @attendance.location = @attendance.re_location
       @attendance.is_active = 2
       @attendance.update(attendance_params)
       redirect_to admin_attendances_path
@@ -36,7 +37,7 @@ class Admin::AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.permit(:start, :customer_id, :location, :is_active, :re_start, :re_end, :cause )
+    params.permit(:start, :customer_id, :location, :is_active, :re_start, :re_end, :cause, :re_location )
   end
 
 end

@@ -8,4 +8,9 @@ class Customer < ApplicationRecord
   has_many :locations, dependent: :destroy
   has_many :attendances, dependent: :destroy
   has_many :editings, dependent: :destroy
+
+  def self.search(keyword)
+   where(["name like?", "%#{keyword}%"])
+  end
+
 end

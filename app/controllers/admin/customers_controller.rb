@@ -4,6 +4,12 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+  def search
+   @customers = Customer.search(params[:keyword])
+   @keyword = params[:keyword]
+   render "index"
+  end
+
   def show
     @customer = Customer.find(params[:id])
   end
@@ -23,4 +29,5 @@ class Admin::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :email)
   end
+
 end

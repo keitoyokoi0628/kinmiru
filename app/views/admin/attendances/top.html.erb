@@ -2,10 +2,10 @@
 
 <% @attendances.each do |attendance| %>
   <%= attendance.customer.name %>
-  <%= attendance.start.strftime('%Y %-m/%d %H:%M') %>
+  <%= attendance.start.strftime('%H:%M') %>
 
   <% unless attendance.end.nil? %>
-   <%= attendance.end.strftime('%Y %-m/%d %H:%M') %>
+   <%= attendance.end.strftime('%H:%M') %>
   <% end %>
 
   <%= attendance.location %>

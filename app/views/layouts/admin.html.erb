@@ -12,14 +12,12 @@
 
   <body>
     <header>
-
       <% if admin_signed_in? %>
        <p>管理者ログインできています。</p>
        <p><%= link_to "TOP", admin_root_path %></p>
        <p><%= link_to "ユーザー一覧", admin_customers_path %></p>
        <p><%= link_to "修正申告一覧", admin_attendances_path %></p>
        <p><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></p>
-
       <% else %>
        <p><%= link_to "TOP", root_path %></p>
        <p><%= link_to "管理者ログイン", new_admin_session_path %></p>
@@ -27,4 +25,5 @@
     </header>
     <%= yield %>
   </body>
+
 </html>

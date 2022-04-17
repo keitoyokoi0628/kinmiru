@@ -8,12 +8,13 @@
 <% unless @attendance.end.nil? %>
  <p>退勤時刻<%= @attendance.end.strftime('%y %-m/%d %H:%M') %></p>
 <% end %>
-
+<p>勤務地<%= @attendance.location %></p>
 
 <p>修正申請内容</p>
 <%= form_with model: @attendance, url: admin_attendance_path(@attendance), method: :patch do |f| %>
  <p>出勤時刻 <%= @attendance.re_start.strftime('%Y %-m/%d %H:%M') %></p>
  <p>退勤時刻 <%= @attendance.re_end.strftime('%Y %-m/%d %H:%M') %></p>
+ <p>勤務地　<%= @attendance.re_location %></p>
  <p>申請理由 <%= @attendance.cause %></p>
 
  <%= f.submit "承認", name: 'approved' %>
