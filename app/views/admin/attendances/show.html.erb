@@ -1,18 +1,20 @@
 <p><%= @customer.name %>さん</p>
 
-<% @attendance.each do |a| %>
+<% @attendance.each do |attendance| %>
 
   <p>出勤打刻</p>
-  <%= a.start.strftime('%Y %-m/%d %H:%M') %>
+  <%= attendance.start.strftime('%Y %-m/%d %H:%M') %>
 
 
 
   <p>退勤打刻</p>
-  <% unless a.end.nil? %>
-  <%= a.end.strftime('%Y %-m/%d %H:%M') %>
+  <% unless attendance.end.nil? %>
+  <%= attendance.end.strftime('%Y %-m/%d %H:%M') %>
   <% end %>
 
   <p>勤務地</p>
-  <%= a.location %>
+  <%= attendance.location %>
 
 <% end %>
+
+<%= link_to "csvで出力する", admin_attendance_path(format: :csv) %>
