@@ -69,3 +69,11 @@
   margin : 10px;
   box-shadow    : 2px 2px 3px #666666;  /* 影の設定 */
 }
+
+table{
+  box-sizing: border-box;
+  border-collapse:collapse;
+  margin: 0 auto;
+  text-align: center;
+  width: 600px;
+}
