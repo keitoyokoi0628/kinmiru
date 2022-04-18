@@ -1,20 +1,20 @@
+<div class="container">
+  <div class="text-center p-5">
+    <h1><%= Time.current.strftime('%Y %-m/%d %H:%M') %></h1>
+    <% unless current_customer.attendances.exists?(start: Time.zone.now.all_day) %>
 
+       <%= form_with model: @attendance do |f| %>
+         <p>勤務地<%= f.text_field :location, class: 'location' %></p>
+         <%= f.hidden_field :start %>
+         <%= f.submit '出勤', class: 'buttonstart' %>
+        <% end %>
 
-<h1><%= Time.current.strftime('%Y %-m/%d %H:%M') %></h1>
-
-
-<% unless current_customer.attendances.exists?(start: Time.zone.now.all_day) %>
-
-   <%= form_with model: @attendance do |f| %>
-     <p>勤務地<%= f.text_field :location %></p>
-     <%= f.hidden_field :start %>
-     <%= f.submit '出勤' %>
     <% end %>
 
-<% end %>
-
-<% if current_customer.attendances.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
-  <%= form_with model: @attendance, url: attendance_path(@attendance), method: :patch do |f| %>
-     <%= f.submit '退勤' %>
-  <% end %>
-<% end %>
+    <% if current_customer.attendances.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
+      <%= form_with model: @attendance, url: attendance_path(@attendance), method: :patch do |f| %>
+         <%= f.submit '退勤', class: 'buttonend' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

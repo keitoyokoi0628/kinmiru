@@ -1,9 +1,10 @@
 <div class="container">
   <div class="text-center p-5">
    <% if customer_signed_in? %>
-    <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
-    <p><%= link_to "打刻をする", new_attendance_path, class: 'text-dark' %></p>
-    </button></a>
+    <h5>ログインに成功しました</h5>
+
+    <div class="text p-3"><%= link_to "打刻をする", new_attendance_path, class: 'button' %></div>
+
    <% else %>
     <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
     <%= link_to "ユーザーログイン",  new_customer_session_path, class: 'text-dark' %>
