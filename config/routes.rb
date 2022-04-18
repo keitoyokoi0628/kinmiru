@@ -16,7 +16,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :attendances
     get '/attendances/:id/timesedit' => 'attendances#timesedit', as: 'timesedit'
     patch '/attendance/:id/timesupdate' => 'attendances#timesupdate', as: 'timesupdate'
-
  end
 
 namespace :admin do

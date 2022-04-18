@@ -61,3 +61,4 @@ gem "enum_help"
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 gem 'dotenv-rails'
+gem 'jquery-rails'
