@@ -1,8 +1,10 @@
 <div class="container">
   <div class="text-center p-5">
+   <% if flash[:notice] %>
+     <div class="alert alert-success" role="alert">
+     <p class="notice text-center" style="color:green;"><%= flash[:notice] %></p></div>
+   <% end %>
    <% if customer_signed_in? %>
-    <h5>ログインに成功しました</h5>
-
     <div class="text p-3"><%= link_to "打刻をする", new_attendance_path, class: 'button' %></div>
 
    <% else %>
