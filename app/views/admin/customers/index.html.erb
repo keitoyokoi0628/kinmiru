@@ -1,14 +1,22 @@
-<h4>ユーザー一覧</h4>
+<div class="container">
+ <div class="text-center p-3">
+  <h4>ユーザー一覧</h4>
 
-<%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
-<% end %>
-
-<% @customers.each do |customer| %>
-
-<p><%= customer.id %></p>
-
-<p><%= link_to customer.name, admin_customer_path(customer.id) %></p>
-
-<% end %>
+   <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword, class: 'location sm' %>
+    <%= f.submit "検索", class: "button" %>
+   <% end %>
+   <table>
+     <tr>
+      <th>ユーザーID</th>
+      <th>名前</th>
+     </tr>
+     <% @customers.each do |customer| %>
+     <tr>
+      <td><%= customer.id %></td>
+      <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+     </tr>
+     <% end %>
+   </table>
+ </div>
+</div>

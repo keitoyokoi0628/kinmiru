@@ -16,8 +16,11 @@ class Public::AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     @attendance.start = Time.current
     @attendance.customer_id = current_customer.id
-    @attendance.save!
-    redirect_to new_attendance_path
+    if @attendance.save
+       redirect_to new_attendance_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -40,8 +43,12 @@ class Public::AttendancesController < ApplicationController
   def timesupdate
     @attendance = Attendance.find(params[:id])
     @attendance.is_active = 1
-    @attendance.update(attendance_params)
-    redirect_to new_attendance_path
+    if @attendance.update(attendance_params)
+       redirect_to attendances_path, notice: '勤怠修正を申請しました。'
+    else
+     flash.now[:danger] = 'すべての項目を入力してください。'
+     render :timesedit
+    end
   end
 
   private

@@ -1,12 +1,25 @@
-<h1>本日の勤務者一覧</h1>
+<div class="container">
+  <div class="text-center p-3">
+    <h1>本日の勤務者一覧</h1>
 
-<% @attendances.each do |attendance| %>
-  <%= attendance.customer.name %>
-  <%= attendance.start.strftime('%H:%M') %>
-
-  <% unless attendance.end.nil? %>
-   <%= attendance.end.strftime('%H:%M') %>
-  <% end %>
-
-  <%= attendance.location %>
-<% end %>
+    <table class="table">
+      <tr>
+        <th>名前</th>
+        <th>出勤時刻</th>
+        <th>退勤時刻</th>
+        <th>勤務地</th>
+      </tr>
+      <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.customer.name %></td>
+        <td><%= attendance.start.strftime('%H:%M') %></td>
+        <td><% unless attendance.end.nil? %>
+            <%= attendance.end.strftime('%H:%M') %>
+            <% end %>
+        </td>
+        <td><%= attendance.location %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

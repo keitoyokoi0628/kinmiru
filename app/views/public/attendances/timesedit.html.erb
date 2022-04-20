@@ -1,8 +1,14 @@
 <div class="container">
  <div class="text-center p-3">
   <h4>勤怠修正申請</h4>
-  <table class="table-edit">
+
+  <% if flash[:danger] %>
+    <div class="alert alert-danger" role="alert">
+    <p class="notice text-center" style="color:red;"><%= flash[:danger] %></p></div>
+  <% end %>
+
   <%= form_with model: @attendance, url: timesupdate_path(@attendance), method: :patch do |f| %>
+  <table class="table-edit">
    <tr>
     <th>出勤時刻</th>
     <td><%= f.datetime_field :re_start %></td>
@@ -19,10 +25,9 @@
     <th>修正理由</th>
     <td><%= f.text_area :cause %></td>
    </tr>
-   <tr>
+   </table>
     <%= f.submit '勤怠修正申請', class: "button" %>
-   </tr>
   <% end %>
-  </table>
+
  </div>
 </div>

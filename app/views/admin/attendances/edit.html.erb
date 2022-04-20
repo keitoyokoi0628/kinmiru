@@ -1,23 +1,76 @@
-<h1>修正詳細</h1>
+<div class="container">
+ <div class="text-center">
+  <h1>修正詳細</h1>
+  <p><%= @attendance.customer.name %>さんの修正申請</p>
+ </div>
 
-<p><%= @attendance.customer.name %>さんの修正申請</p>
+ <div class="row">
 
-<p>修正前</p>
-<p>出勤時刻<%= @attendance.start.strftime('%Y %-m/%d %H:%M') %></p>
+  <div class="col-lg-6">
+   <div class="text-center">
+    <strong>修正前</strong>
+   </div>
+    <table class="table-admin-editting">
+     <tr>
+      <th>勤務日</th>
+      <td>
+       <% unless @attendance.created_at.nil? %>
+       <%= @attendance.created_at.strftime('%Y年%-m月%d日') %>
+       <% end %>
+      </td>
+     </tr>
+     <tr>
+      <th>出勤時刻</th>
+      <td><%= @attendance.start.strftime('%H:%M') %></td>
+     </tr>
+     <tr>
+      <th>退勤打刻</th>
+      <td>
+       <% unless @attendance.end.nil? %>
+        <%= @attendance.end.strftime('%H:%M') %>
+       <% end %>
+      </td>
+      <tr>
+       <th>勤務地</th>
+       <td><%= @attendance.location %></td>
+      </tr>
+     </tr>
+    </table>
+  </div>
 
-<% unless @attendance.end.nil? %>
- <p>退勤時刻<%= @attendance.end.strftime('%y %-m/%d %H:%M') %></p>
-<% end %>
-<p>勤務地<%= @attendance.location %></p>
+  <div class="col-lg-6">
+   <div class="text-center">
+    <strong>修正申請内容</strong>
+   </div>
+    <%= form_with model: @attendance, url: admin_attendance_path(@attendance), method: :patch do |f| %>
+     <table class="table-admin-editting2">
+      <tr>
+       <th>申請日</th>
+       <td><%= @attendance.updated_at.strftime('%Y年%-m月%d日') %></td>
+      </tr>
+      <tr>
+       <th>出勤時刻</th>
+       <td><%= @attendance.re_start.strftime('%Y %-m/%d %H:%M') %></td>
+      </tr>
+      <tr>
+       <th>退勤打刻</th>
+       <td><%= @attendance.re_end.strftime('%Y %-m/%d %H:%M') %></td>
+      </tr>
+      <tr>
+       <th>勤務地</th>
+       <td><%= @attendance.re_location %></td>
+      </tr>
+      <tr>
+       <th>申請理由</th>
+       <td><%= @attendance.cause %></td>
+      </tr>
+     </table>
+     <div class="text-center">
+      <%= f.submit "承認", name: 'approved', class: "button-approved" %>
+      <%= f.submit "否認", name: 'negative', class: "button-negative" %>
+     </div>
 
-<p>修正申請内容</p>
-<%= form_with model: @attendance, url: admin_attendance_path(@attendance), method: :patch do |f| %>
- <p>出勤時刻 <%= @attendance.re_start.strftime('%Y %-m/%d %H:%M') %></p>
- <p>退勤時刻 <%= @attendance.re_end.strftime('%Y %-m/%d %H:%M') %></p>
- <p>勤務地　<%= @attendance.re_location %></p>
- <p>申請理由 <%= @attendance.cause %></p>
-
- <%= f.submit "承認", name: 'approved' %>
- <%= f.submit "否認", name: 'negative' %>
-
-<% end %>
+   <% end %>
+  </div>
+ </div>
+</div>

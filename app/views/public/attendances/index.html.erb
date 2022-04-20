@@ -1,6 +1,10 @@
 <div class="container">
   <div class="text-center p-3">
     <h4 class="text p-3">勤怠一覧</h4>
+    <% if flash[:notice] %>
+     <div class="alert alert-success" role="alert">
+     <p class="notice text-center" style="color:green;"><%= flash[:notice] %></p></div>
+    <% end %>
     <table class="table">
         <tr>
           <th>日付</th>
@@ -30,7 +34,7 @@
           <%= attendance.is_active_i18n %>
          </td>
          <td>
-          <P><%= link_to "修正", timesedit_path(attendance), class: "btn btn-primary" %></P>
+          <P><%= link_to "修正", timesedit_path(attendance), class: "button-show" %></P>
          </td>
           <% end %>
         </tr>

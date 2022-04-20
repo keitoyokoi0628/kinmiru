@@ -1,20 +1,26 @@
-<p><%= @customer.name %>さん</p>
-
-<% @attendance.each do |attendance| %>
-
-  <p>出勤打刻</p>
-  <%= attendance.start.strftime('%Y %-m/%d %H:%M') %>
-
-
-
-  <p>退勤打刻</p>
-  <% unless attendance.end.nil? %>
-  <%= attendance.end.strftime('%Y %-m/%d %H:%M') %>
-  <% end %>
-
-  <p>勤務地</p>
-  <%= attendance.location %>
-
-<% end %>
-
-<%= link_to "csvで出力する", admin_attendance_path(format: :csv) %>
+<div class="container">
+  <div class="text-center p-3">
+  <p><%= @customer.name %>さん</p>
+    <table class="table-index">
+      <tr>
+        <th>年月日</th>
+        <th>出勤時刻</th>
+        <th>退勤打刻</th>
+        <th>勤務地</th>
+      </tr>
+      <% @attendance.each do |attendance| %>
+      <tr>
+        <td><%= attendance.start.strftime('%Y年 %-m月') %></td>
+        <td><%= attendance.start.strftime('%H:%M') %></td>
+        <td>
+          <% unless attendance.end.nil? %>
+          <%= attendance.end.strftime('%H:%M') %>
+          <% end %>
+        </td>
+        <td><%= attendance.location %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to "csvエクスポート", admin_attendance_path(format: :csv), class: "button-show" %>
+  </div>
+</div>
