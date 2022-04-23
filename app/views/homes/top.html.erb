@@ -4,6 +4,7 @@
      <div class="alert alert-success" role="alert">
      <p class="notice text-center" style="color:green;"><%= flash[:notice] %></p></div>
    <% end %>
+   <p><%= image_tag 'logo.jpg', size: "450x450" %></p>
    <% if customer_signed_in? %>
     <div class="text p-3"><%= link_to "打刻をする", new_attendance_path, class: 'button' %></div>
 
