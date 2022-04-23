@@ -5,6 +5,7 @@ class Public::AttendancesController < ApplicationController
   end
 
   def new
+    @customer = current_customer
     if current_customer.attendances.exists?(start: Time.zone.now.all_day)
     @attendance = current_customer.attendances.last
     else
@@ -13,6 +14,7 @@ class Public::AttendancesController < ApplicationController
   end
 
   def create
+    @customer = current_customer
     @attendance = Attendance.new(attendance_params)
     @attendance.start = Time.current
     @attendance.customer_id = current_customer.id

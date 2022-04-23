@@ -336,3 +336,67 @@ table th{
   border: 2px solid #999;
   background: #ffff1a;
 }
+
+.row {
+  width: 100%;
+  height: 200px;
+  margin-top : 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.col-lg-5 {
+  width: 100%;
+  height: 200px;
+  margin-bottom : 93px;
+  background-color: #fff;
+  text-align: center;
+}
+
+
+/* Google Fonts 読み込み */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+/* 全体を囲うコンテナー */
+.clock-area {
+  width: 100%;
+  height: 200px;
+  margin-top : 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 時計の共通スタイル */
+.clock {
+  font-family: 'Share Tech Mono', monospace;
+  color: #000033;
+  text-shadow: 0 0 20px #43FF6B;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* 日付のスタイル */
+.clock-date {
+  font-size: 25px;
+}
+
+/* 時間のスタイル */
+.clock-time {
+  font-size: 100px;
+}
+
+/* 文字サイズ調整 */
+@media screen and (max-width: 500px) {
+  .clock-date {
+    font-size: 5vw;
+  }
+  .clock-time {
+    font-size: 20vw;
+  }
+}

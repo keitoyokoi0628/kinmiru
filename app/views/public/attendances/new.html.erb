@@ -1,30 +1,48 @@
 <div class="container">
-  <div class="text-center p-5">
+  <html lang="ja">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <div class="row">
+     <div class="clock-area">
+       <div class="clock">
+        <p class="clock-date"></p>
+        <p class="clock-time"></p>
+       </div>
+     </div>
+    </div>
+  <script src="clock.js"></script>
+  </html>
+  <div class="row">
+    <div class="text-center p-5">
 
+      <h5 class="text-center p-5"><strong><%= @customer.name %></strong>さんの勤怠ページです。</h5>
 
-    <% if @attendance.errors.any? %>
-     <ul>
-       <% @attendance.errors.full_messages_for(:location).each do |message| %>
-        <p><%= "勤務地を入力してください" %></p>
-       <% end %>
-     </ul>
-    <% end %>
-
-    <h1><%= Time.current.strftime('%Y %-m/%d %H:%M') %></h1>
-    <% unless current_customer.attendances.exists?(start: Time.zone.now.all_day) %>
-
-       <%= form_with model: @attendance do |f| %>
-         <p>勤務地<%= f.text_field :location, class: 'location' %></p>
-         <%= f.hidden_field :start %>
-         <%= f.submit '出勤', class: 'buttonstart' %>
-        <% end %>
-
-    <% end %>
-
-    <% if current_customer.attendances.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
-      <%= form_with model: @attendance, url: attendance_path(@attendance), method: :patch do |f| %>
-         <%= f.submit '退勤', class: 'buttonend' %>
+      <% if @attendance.errors.any? %>
+       <ul>
+         <% @attendance.errors.full_messages_for(:location).each do |message| %>
+          <p><%= "勤務地を入力してください" %></p>
+         <% end %>
+       </ul>
       <% end %>
-    <% end %>
+
+      <% unless current_customer.attendances.exists?(start: Time.zone.now.all_day) %>
+         <%= form_with model: @attendance do |f| %>
+           <p>勤務地<%= f.text_field :location, class: 'location' %></p>
+           <%= f.hidden_field :start %>
+           <%= f.submit '出勤', class: 'buttonstart' %>
+          <% end %>
+      <% end %>
+
+      <% if current_customer.attendances.exists?(start: Time.zone.now.all_day) && @attendance.end.nil? %>
+        <%= form_with model: @attendance, url: attendance_path(@attendance), method: :patch do |f| %>
+           <%= f.submit '退勤', class: 'buttonend' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
