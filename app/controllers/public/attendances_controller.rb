@@ -17,9 +17,9 @@ class Public::AttendancesController < ApplicationController
     @attendance.start = Time.current
     @attendance.customer_id = current_customer.id
     if @attendance.save
-       redirect_to new_attendance_path
+     redirect_to attendances_path
     else
-      render :new
+     render :new
     end
   end
 
@@ -32,7 +32,7 @@ class Public::AttendancesController < ApplicationController
     @attendance.end = Time.current
     @attendance.is_active = 0
     @attendance.save
-    redirect_to new_attendance_path
+    redirect_to attendances_path
   end
 
 
@@ -43,6 +43,7 @@ class Public::AttendancesController < ApplicationController
   def timesupdate
     @attendance = Attendance.find(params[:id])
     @attendance.is_active = 1
+    @attendance.validate_attributes = true
     if @attendance.update(attendance_params)
        redirect_to attendances_path, notice: '勤怠修正を申請しました。'
     else

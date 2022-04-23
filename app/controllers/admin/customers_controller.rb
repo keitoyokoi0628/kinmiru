@@ -14,6 +14,12 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def destroy
+      @customer = Customer.find(params[:id])
+      @customer.destroy
+      redirect_to admin_customers_path
+  end
+
   def edit
     @customer = Customer.find(params[:id])
   end

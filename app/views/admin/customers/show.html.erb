@@ -21,5 +21,6 @@
     <p><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "button-show" %>
     <%= link_to "勤怠一覧", admin_attendance_path(@customer.id), class: "button-admin-index" %>
     </p>
+    <p><%= link_to "ユーザー削除",admin_customer_path(@customer.id), class: "button-admin-delete", method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class Attendance < ApplicationRecord
+  attr_accessor :validate_attributes
 
   belongs_to :customer, optional: :true
 
@@ -8,9 +9,12 @@ class Attendance < ApplicationRecord
 
   validates :location, presence: true
 
-  validates :re_start, presence: true
-  validates :re_end, presence: true
-  validates :re_location, presence: true
-  validates :cause, presence: true
+  validates :re_start, presence: true, if: :validate_attributes?
+  validates :re_end, presence: true, if: :validate_attributes?
+  validates :re_location, presence: true, if: :validate_attributes?
+  validates :cause, presence: true, if: :validate_attributes?
 
+ def validate_attributes?
+   validate_attributes == 'true' || validate_attributes == true
+ end
 end
