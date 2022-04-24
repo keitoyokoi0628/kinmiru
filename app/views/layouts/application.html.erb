@@ -52,12 +52,6 @@
                   <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
                   <%= link_to "ユーザーログイン",  new_customer_session_path, class: 'text-dark' %>
                   </button></a>
-                 </li>
-                 <li class="nav-item p-2">
-                  <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
-                  <%= link_to "管理者ログイン", new_admin_session_path, class: 'text-dark' %>
-                  </button></a>
-                 </li>
                 <% end %>
             </ul>
           </div>
@@ -68,6 +62,19 @@
     <%= yield %>
     </main>
     <footer class="footer text-white pt-5 pb-4">
+      <div class="container">
+        <div class="text-right">
+         <% if admin_signed_in? %>
+          <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
+                <%= link_to "管理者TOP", admin_root_path, class: 'text-dark' %>
+                </button></a>
+         <% else %>
+          <a><button class="btn btn-sm btn-outline-secondary shadow-sm" type="button">
+           <%= link_to "管理者ログイン", new_admin_session_path, class: 'text-dark' %>
+          </button></a>
+         <% end %>
+        </div>
+      </div>
     </footer>
   </body>
 

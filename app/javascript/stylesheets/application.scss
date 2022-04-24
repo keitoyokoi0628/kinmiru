@@ -115,6 +115,7 @@ table th{
 }
 
 .table-show{
+  width: 100%;
   box-sizing: border-box;
   border-collapse:collapse;
   margin: 0 auto;
@@ -123,11 +124,13 @@ table th{
 }
 
 .table-show td{
+  width: 100%;
   border: 2px solid #999;
   padding : 10px 18px;
 }
 
 .table-show th{
+  width: 100%;
   text-align : start;
   border: 2px solid #999;
   background: #99ccff;
