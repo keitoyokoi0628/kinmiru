@@ -1,12 +1,12 @@
 <div class="container">
  <div class="text-center p-3">
-  <h4>ユーザー一覧</h4>
+  <h4 class="text p-3">ユーザー一覧</h4>
 
    <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, value: @keyword, class: 'location sm' %>
     <%= f.submit "検索", class: "button" %>
    <% end %>
-   <table>
+   <table class="table-admin-user">
      <tr>
       <th>ユーザーID</th>
       <th>名前</th>
@@ -18,6 +18,6 @@
      </tr>
      <% end %>
    </table>
-   <p><%= link_to "ユーザー新規作成", new_admin_customer_path %></p>
+   <p><%= link_to "ユーザー新規作成", new_admin_customer_path, class: "button-user-new" %></p>
  </div>
 </div>
