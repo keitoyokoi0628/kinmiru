@@ -11,7 +11,7 @@
       </tr>
       <% @attendance.each do |attendance| %>
       <tr>
-        <td><%= attendance.start.strftime('%Y年 %-m月') %></td>
+        <td><%= attendance.start.strftime('%Y年 %-m月 %d日') %></td>
         <td><%= attendance.start.strftime('%H:%M') %></td>
         <td>
           <% unless attendance.end.nil? %>

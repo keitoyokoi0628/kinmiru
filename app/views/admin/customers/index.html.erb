@@ -1,6 +1,6 @@
 <div class="container">
  <div class="text-center p-3">
-  <h4 class="text p-3">ユーザー一覧</h4>
+  <h1 class="text p-3">ユーザー一覧</h1>
 
    <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, value: @keyword, class: 'location sm' %>

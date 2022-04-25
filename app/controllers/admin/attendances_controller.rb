@@ -8,6 +8,7 @@ class Admin::AttendancesController < ApplicationController
 
   def index
     @attendances = Attendance.where(is_active: "1")
+
   end
 
   def show
