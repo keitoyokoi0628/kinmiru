@@ -5,8 +5,8 @@
      <div class="alert alert-success" role="alert">
      <p class="notice text-center" style="color:green;"><%= flash[:notice] %></p></div>
     <% end %>
-    <%= link_to "前月",attendances_path(month:@month.prev_month) %>
-    <%= link_to "次月",attendances_path(month:@month.next_month) %>
+    <%= link_to "前月",attendances_path(month:@month.prev_month), class: "button-month-prev" %>
+    <%= link_to "次月",attendances_path(month:@month.next_month), class: "button-month-next" %>
     <table class="table">
         <tr>
           <th>日付</th>
