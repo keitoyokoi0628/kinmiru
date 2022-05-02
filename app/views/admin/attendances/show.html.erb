@@ -25,6 +25,6 @@
       </tr>
       <% end %>
     </table>
-    <%= link_to "csvエクスポート", admin_attendance_path(format: :csv), class: "button-show" %>
+    <%= link_to "csvエクスポート", admin_attendance_path(month: @month, format: :csv), class: "button-show" %>
   </div>
 </div>
