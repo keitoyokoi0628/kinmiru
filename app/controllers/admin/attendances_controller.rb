@@ -14,6 +14,8 @@ class Admin::AttendancesController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @attendance = @customer.attendances
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    @attendance = @customer.attendances.where(updated_at: @month.all_month)
     respond_to do |format|
       format.html
       format.csv do |csv|
