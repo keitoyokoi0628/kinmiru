@@ -3,7 +3,7 @@ class Public::AttendancesController < ApplicationController
   def index
     @attendances = current_customer.attendances
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
-    @attendances = current_customer.attendances.where(updated_at: @month.all_month)
+    @attendances = current_customer.attendances.where(created_at: @month.all_month)
   end
 
   def new
