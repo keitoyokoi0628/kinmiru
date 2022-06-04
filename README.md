@@ -67,7 +67,7 @@ https://docs.google.com/spreadsheets/d/1y4JM8t0R68X_lOrFWBFKXzqdlUCSTbmN/edit?us
 https://docs.google.com/spreadsheets/d/1pfpiZIl3cIYiiWp4x6Yyvo8RpXoe9yKk8D9ZSHpr654/edit?usp=sharing  
   
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：windows MacOS
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
