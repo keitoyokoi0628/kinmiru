@@ -70,5 +70,6 @@ https://docs.google.com/spreadsheets/d/1pfpiZIl3cIYiiWp4x6Yyvo8RpXoe9yKk8D9ZSHpr
 - OS：Amazon Linux2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
 - IDE：Cloud9
 
