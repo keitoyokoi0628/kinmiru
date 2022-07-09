@@ -507,4 +507,23 @@ table th{
   .clock-time {
     font-size: 20vw;
   }
+
+  table{
+  box-sizing: border-box;
+  border-collapse:collapse;
+  margin: 0 auto;
+  text-align: center;
+  width: 400px;
+}
+
+table td{
+  border: 2px solid #999;
+}
+
+table th{
+  border: 2px solid #999;
+  background: #99ccff;
+  font-size: 10px;
+}
+
 }
