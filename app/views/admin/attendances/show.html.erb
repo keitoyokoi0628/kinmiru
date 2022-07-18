@@ -3,7 +3,7 @@
   <p><%= @customer.name %>さん</p>
   <%= link_to "前月", admin_attendance_path(month:@month.prev_month), class: "button-month-prev" %>
   <%= link_to "次月", admin_attendance_path(month:@month.next_month), class: "button-month-next" %>
-    <table class="table-index">
+    <table class="table">
       <tr>
         <th>年月日</th>
         <th>出勤時刻</th>
